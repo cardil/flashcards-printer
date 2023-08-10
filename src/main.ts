@@ -14,7 +14,7 @@ $("#go").on("click", () => {
 
         let pages: string[][][] = [];
 
-        const chunkSize = 24;
+        const chunkSize = 16;
         for (let i = 0; i < pairs.length; i += chunkSize) {
             const chunk = pairs.slice(i, i + chunkSize);
             pages.push(chunk);
@@ -52,8 +52,11 @@ $("#go").on("click", () => {
         console.log(tables);
 
         $("#grids").empty();
+        let odd = true;
         tables.forEach((table) => {
-            let tableElement = $('<div class="grid"></div>');
+            const oddClass = odd ? "odd" : "even";
+            let tableElement = $(`<div class="grid ${oddClass}"></div>`);
+            odd = !odd;
 
             table.forEach((item) => {
                 tableElement.append(`<div>${item}</div>`);

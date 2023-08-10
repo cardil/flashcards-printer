@@ -2,18 +2,46 @@
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     page-break-after: always;
+    padding: 5mm 8.5mm;
+    margin: 0 auto;
 }
 
 .grid > div {
-    border: 1px solid lightgray;
-    padding: 20px;
-    height: 120px;
+    border: 0.5mm dotted burlywood;
+    padding: 4.5mm;
+    height: 4cm;
+    width: 6cm;
     font-family: "Montserrat", sans-serif;
-    font-size: 19px;
+    font-size: 3mm;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    position: relative;
+}
+
+.grid.odd > div::after {
+    content: "braterstwo.eu";
+    display: block;
+    position: absolute;
+    top: -0.5mm;
+    right: 5mm;
+    font-size: 2mm;
+    padding: 1mm;
+    color: white;
+    background-color: burlywood;
+}
+
+.grid.even > div::after {
+    content: "ps.eu";
+    display: block;
+    position: absolute;
+    top: -0.5mm;
+    left: 5mm;
+    font-size: 2mm;
+    padding: 1mm;
+    color: white;
+    background-color: burlywood;
 }
 
 body {
